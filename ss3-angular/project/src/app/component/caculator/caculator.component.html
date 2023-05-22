@@ -1,0 +1,16 @@
+<div class="input-group">
+  <label for="first-number">First Number</label>
+  <input #firstnumber type="number"
+  class="form-control" id="first-number" >
+</div>
+
+<div class="input-group">
+  <label for="first-number">Second Number</label>
+  <input #secondnumber type="number"
+         class="form-control" id="second-number" >
+</div>
+
+<button type="button" class="btn btn-primary"
+  (click)="sum(firstnumber.value, secondnumber.value)">SUM</button>
+
+<p>Result: {{result}}</p>
