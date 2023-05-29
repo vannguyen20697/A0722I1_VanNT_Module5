@@ -11,7 +11,19 @@ export class CaculatorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  sum(firstnumber: string, secondnumber: string){
+  sum(firstnumber: string, secondnumber: string) {
     this.result = +firstnumber + +secondnumber;
+  }
+
+  minus(firstnumber: string, secondnumber: string) {
+    this.result = +firstnumber - +secondnumber;
+  }
+
+  multiply(firstnumber: string, secondnumber: string) {
+    this.result = +firstnumber * +secondnumber;
+  }
+
+  division(firstnumber: string, secondnumber: string) {
+    this.result = +firstnumber / +secondnumber;
   }
 }

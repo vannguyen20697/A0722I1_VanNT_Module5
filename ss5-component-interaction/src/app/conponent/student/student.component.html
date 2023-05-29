@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Rank</th>
+    <th>Like</th>
+    <th>Vote Child</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students; index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.score}}</td>
+    <td>
+    <ng-container *ngIf="student.score < 5; else block">
+      Rot module
+    </ng-container>
+      <ng-template #block>
+        Qua Module
+      </ng-template>
+    </td>
+    <td><app-like></app-like></td>
+    <td><app-child [vote]= "student.vote"></app-child></td>
+  </tr>
+
+  </tbody>
+</table>
+<app-add-modal (onCreate)="methodCreateStudent($event)"></app-add-modal>
