@@ -26,11 +26,17 @@ export class StudentComponent implements OnInit {
       vote: 4,
     }
     ];
+  studentDetail: Student = undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
   methodCreateStudent(student: Student) {
     this.students.push({...student, vote: 0});
+  }
+
+  changeStudent(student: Student) {
+    this.studentDetail = student;
+
   }
 }

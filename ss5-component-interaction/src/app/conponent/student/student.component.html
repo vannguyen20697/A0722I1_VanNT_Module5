@@ -1,3 +1,4 @@
+
 <table class="table">
   <thead>
   <tr>
@@ -10,7 +11,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let student of students; index as i">
+  <tr *ngFor="let student of students; index as i"
+    (click)="changeStudent(student)">
     <td scope="row">{{i+1}}</td>
     <td>{{student.name}}</td>
     <td>{{student.score}}</td>
@@ -25,7 +27,7 @@
     <td><app-like></app-like></td>
     <td><app-child [vote]= "student.vote"></app-child></td>
   </tr>
-
   </tbody>
 </table>
-<app-add-modal (onCreate)="methodCreateStudent($event)"></app-add-modal>
+<app-student-detail [student] = "studentDetail"></app-student-detail>
+<app-student-create (onCreate)="methodCreateStudent($event)"></app-student-create>
