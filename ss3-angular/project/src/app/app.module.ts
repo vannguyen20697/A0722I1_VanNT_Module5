@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontsizeComponent } from './component/fontsize/fontsize.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PetComponent } from './component/pet/pet.component';
 import { ProductComponent } from './component/product/product.component';
 import { CaculatorComponent } from './component/caculator/caculator.component';
@@ -16,6 +16,7 @@ import { LikeComponent } from './component/like/like.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { CountdownComponent } from './component/countdown/countdown.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 @NgModule({
@@ -33,12 +34,14 @@ import { CountdownComponent } from './component/countdown/countdown.component';
     NavbarComponent,
     FooterComponent,
     CountdownComponent,
+    LoginComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
