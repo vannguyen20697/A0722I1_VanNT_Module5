@@ -1,0 +1,91 @@
+<app-student-create></app-student-create>
+<table class="table">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Id.</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Address</th>
+    <th>Class Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students; index as i">
+    <td scope="row">{{i + 1}}</td>
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.score}}</td>
+    <td>{{student.address}}</td>
+    <td>{{student.cla.className}}</td>
+    <td><!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+              (click)="getStudent(student.id)">Delete
+      </button>
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#detail"
+              (click)="getStudent(student.id)">Detail
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--<app-student-detail [student] = "studentDetail"></app-student-detail>-->
+<!--<app-student-create (onCreate)="methodCreateStudent($event)"></app-student-create>-->
+
+
+<!-- Modal delete -->
+<div *ngIf="student" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ban co muon xoa {{student.name}} khong?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeStudent(student.id)">
+          confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="student" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDetail"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+          <div class="card-header">Detail Student</div>
+          <div class="card-body">
+            <h4 class="card-title">Name</h4>
+            <p class="card-text">{{student.name}}</p>
+            <h4 class="card-title">score</h4>
+            <p class="card-text">{{student.score}}</p>
+            <h4 class="card-title">address</h4>
+            <p class="card-text">{{student.address}}</p>
+            <h4 class="card-title">class</h4>
+            <p class="card-text">{{student.cla.className}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

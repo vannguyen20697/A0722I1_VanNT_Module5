@@ -1,0 +1,55 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modelId">
+  ADD new
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="" [formGroup]="rfProduct" (ngSubmit)="addProduct()">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modelTitleId"></h4>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>No<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productNo">
+            <p class="text-danger" *ngIf="rfProduct.controls.productNo?.errors?.required">Id không được để trống</p>
+          </div>
+          <div class="form-group">
+            <label>Name<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productName">
+            <p class="text-danger" *ngIf="rfProduct.controls.productName?.errors?.required">Tên không được để trống</p>
+            <p class="text-danger" *ngIf="rfProduct.controls.name?.errors?.maxlength">Tên không được >10 </p>
+            <p class="text-danger" *ngIf="rfProduct.controls.name?.errors?.minlength">Tên không được <2 </p>
+          </div>
+          <div class="form-group">
+            <label>Price<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productPrice">
+            <p class="text-danger" *ngIf="rfProduct.controls.productPrice?.errors?.required">Price không được để trống</p>
+          </div>
+          <div class="form-group">
+            <label>productDescription<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productDescription">
+            <p class="text-danger" *ngIf="rfProduct.controls.productDescription?.errors?.required">Description không được để trống</p>
+          </div>
+          <div class="form-group">
+            <label>cla<span>*</span></label>
+            <select class="form-select" formControlName="productStatus">
+              <option *ngFor="let status of statuses; index as i" value="{{status.statusNo}}">{{status.statusName}}</option>
+            </select>
+            <p class="text-danger" *ngIf="rfProduct.controls.productStatus?.errors?.required">class không được để trống</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button [disabled]="rfProduct.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
