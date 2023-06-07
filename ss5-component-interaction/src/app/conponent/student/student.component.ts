@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Student} from '../../model/student';
+import {StudentService} from '../service/student.service';
 
 @Component({
   selector: 'app-student',
@@ -7,29 +8,12 @@ import {Student} from '../../model/student';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  students: Student[] = [
-    { id: 1,
-      name: 'Nhan',
-      score: 1,
-      vote: 2,
-    },
-    {
-      id: 2,
-      name: 'Thanh',
-      score: 10,
-      vote: 3,
-    },
-    {
-      id: 3,
-      name: 'Hoa',
-      score: 6,
-      vote: 4,
-    }
-    ];
+  students: Student[];
   studentDetail: Student = undefined;
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
+    this.students =  this.studentService.findAll();
   }
   methodCreateStudent(student: Student) {
     this.students.push({...student, vote: 0});

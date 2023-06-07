@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Student} from '../../model/student';
+import {ActivatedRoute} from '@angular/router';
+import {StudentService} from '../service/student.service';
 
 @Component({
   selector: 'app-student-detail',
@@ -8,9 +10,14 @@ import {Student} from '../../model/student';
 })
 export class StudentDetailComponent implements OnInit {
   @Input() student: Student;
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private studentService: StudentService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+      const id = parseInt(paramMap.get('id'), 10);
+      this.student = this.studentService.findById(id);
+    });
   }
 
 }

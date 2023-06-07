@@ -1,0 +1,53 @@
+<div class="container">
+  <div class='table-responsive '>
+    <table class='table table-hover'>
+      <thead>
+      <tr>
+        <th>No.</th>
+        <th>Word</th>
+<!--        <th>Mean</th>-->
+        <td></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dictionary of dictionaries, index as i;">
+        <td>{{i + 1}}</td>
+        <td>{{dictionary.word}}</td>
+<!--        <td>{{dictionary.mean}}</td>-->
+        <td>
+          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#detail"
+                  (click)="getDictionary(dictionary.id)">Detail
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="dictionary" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDetail"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+          <div class="card-header">Detail</div>
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text">{{dictionary.word}}</p>
+            <h4 class="card-title"></h4>
+            <p class="card-text">{{dictionary.mean}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

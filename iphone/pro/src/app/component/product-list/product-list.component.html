@@ -1,0 +1,95 @@
+<!--<app-product-create></app-product-create>-->
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id.</th>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Day</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td scope="row">{{i + 1}}</td>
+    <td>{{product.productNo}}</td>
+    <td>{{product.productName}}</td>
+    <td>{{product.productPrice}}</td>
+    <td>{{product.productDay | date: 'dd/MM/yyyy' }}</td>
+    <td>{{product.productDescription}}</td>
+    <td>{{product.status.statusName}}</td>
+
+    <td>
+      <!-- Button trigger modal delete -->
+        <td><!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+                  (click)="getProduct(product.id)">Delete
+          </button>
+
+<!--      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#detail"-->
+<!--                  (click)="getProduct(product.id)">Detail-->
+<!--      </button>-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Modal delete -->
+<div *ngIf="product" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ban co muon xoa {{product.productName}} khong?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeProduct(product.id)">
+          confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div *ngIf="student" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title" id="modelTitleIdDetail"></h4>-->
+<!--        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">-->
+<!--          <div class="card-header">Detail Student</div>-->
+<!--          <div class="card-body">-->
+<!--            <h4 class="card-title">Name</h4>-->
+<!--            <p class="card-text">{{student.name}}</p>-->
+<!--            <h4 class="card-title">score</h4>-->
+<!--            <p class="card-text">{{student.score}}</p>-->
+<!--            <h4 class="card-title">address</h4>-->
+<!--            <p class="card-text">{{student.address}}</p>-->
+<!--            <h4 class="card-title">class</h4>-->
+<!--            <p class="card-text">{{student.cla.className}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

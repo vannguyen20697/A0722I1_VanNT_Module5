@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "productNo": "1",
+      "productName": "IPhone 12",
+      "productPrice": 2400000,
+      "productDay": "2000-02-02",
+      "productDescription": "New",
+      "status": {
+        "statusNo": "1",
+        "statusName": "Sold"
+      },
+      "id": 1
+    },
+    {
+      "productNo": "2",
+      "productName": "IPhone 11",
+      "productPrice": 1560000,
+      "productDay": "2000-02-03",
+      "productDescription": "Like new",
+      "status": {
+        "statusNo": "2",
+        "statusName": "Stock"
+      },
+      "id": 2
+    },
+    {
+      "productNo": "3",
+      "productName": "IPhone X",
+      "productPrice": 968000,
+      "productDay": "2000-02-04",
+      "productDescription": "97%",
+      "status": {
+        "statusNo": "2",
+        "statusName": "Stock"
+      },
+      "id": 3
+    },
+    {
+      "productNo": "4",
+      "productName": "IPhone 8",
+      "productPrice": 7540000,
+      "productDay": "2000-02-05",
+      "productDescription": "98%",
+      "status": {
+        "statusNo": "1",
+        "statusName": "Sold"
+      },
+      "id": 4
+    },
+    {
+      "productNo": "5",
+      "productName": "Ipasdad",
+      "productPrice": 231321,
+      "productDay": "2023-06-08",
+      "productDescription": "weqweqwe",
+      "status": {
+        "statusNo": "1",
+        "statusName": "Sold"
+      },
+      "id": 5
+    }
+  ],
+  "statuses": [
+    {
+      "statusNo": "1",
+      "statusName": "Sold"
+    },
+    {
+      "statusNo": "2",
+      "statusName": "Stock"
+    }
+  ]
+}

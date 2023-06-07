@@ -17,6 +17,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { CountdownComponent } from './component/countdown/countdown.component';
 import { LoginComponent } from './component/login/login.component';
+import { DictionarypageComponent } from './component/dictionary-find/component/dictionarypage/dictionarypage.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { LoginComponent } from './component/login/login.component';
     FooterComponent,
     CountdownComponent,
     LoginComponent,
+    DictionarypageComponent,
 
   ],
   imports: [
