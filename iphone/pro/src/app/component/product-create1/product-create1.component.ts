@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {StatusService} from '../../service/status.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-create1',
@@ -52,6 +53,13 @@ export class ProductCreate1Component implements OnInit {
    addProduct() {
     const product = this.rfProduct.value;
     this.productService.save(product).subscribe(data => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigateByUrl('/product/list');
     });
   }

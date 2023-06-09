@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { StatusListComponent } from './component/status-list/status-list.component';
 import {ProductCreate1Component} from './component/product-create1/product-create1.component';
+import { ProductEditComponent } from './component/product-edit/product-edit.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import {ProductCreate1Component} from './component/product-create1/product-creat
     ProductListComponent,
     // ProductCreateComponent,
     StatusListComponent,
-    ProductCreate1Component
+    ProductCreate1Component,
+    ProductEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgxPaginationModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

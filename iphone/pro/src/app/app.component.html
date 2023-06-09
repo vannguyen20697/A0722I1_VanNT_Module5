@@ -1,14 +1,13 @@
 <div class="topnav">
-  <a  routerLink="/product/list">List product</a>
-  <a href="/product/create">Create New</a>
-  <a href="/product/detail">Detail</a>
+  <a routerLink="/product/list">List product</a>
+  <a routerLink="/product/create">Create New</a>
+  <a routerLink="/product/status">Status List</a>
   <a href="#" style=" float:right">Logout</a>
 </div>
 
 <div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="card">
+    <router-outlet></router-outlet>
   </div>
 </div>
+

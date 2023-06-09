@@ -12,6 +12,12 @@ export class StatusListComponent implements OnInit {
   constructor(private statusService: StatusService) {}
 
   ngOnInit(): void {
+    this.getAllStatus();
   }
 
+  private getAllStatus() {
+    this.statusService.findAll().subscribe(next => {
+      this.statuses = next;
+    });
+  }
 }

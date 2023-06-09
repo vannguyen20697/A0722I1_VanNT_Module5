@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Product1} from '../../model/product1';
 import {ProductService} from '../../service/product.service';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Status} from '../../model/status';
 import {StatusService} from '../../service/status.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-product-list',
@@ -16,9 +17,18 @@ export class ProductListComponent implements OnInit {
   product: Product1;
   productForm: FormGroup;
   statuses: Status[];
+  searchForm: FormGroup;
+  p = 1;
+
   constructor(private productService: ProductService,
               private statusService: StatusService,
               private router: Router) {
+    this.searchForm = new FormGroup({
+      productName: new FormControl(),
+      productPrice: new FormControl(),
+      proDayStart: new FormControl(),
+      proDayEnd: new FormControl(),
+    });
   }
 
   ngOnInit(): void {
@@ -33,14 +43,14 @@ export class ProductListComponent implements OnInit {
   }
 
   private getAllStatus() {
-    this.statusService.findAll().subscribe(data => {
-      this.statuses = data;
+    this.statusService.findAll().subscribe(next => {
+      this.statuses = next;
     });
   }
 
   getProduct(id: number) {
-    this.productService.findById(id).subscribe(data => {
-      this.product = data;
+    this.productService.findById(id).subscribe(next => {
+      this.product = next;
     });
   }
 
@@ -51,5 +61,11 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-
+  onSearch() {
+    const rfSearch = this.searchForm.value;
+    this.productService.search(rfSearch).subscribe(next => {
+        this.products = next;
+      }
+    );
+  }
 }

@@ -1,4 +1,4 @@
-<form action="" [formGroup]="rfProduct" (ngSubmit)="addProduct()">
+<form action="" [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
   <div class="modal-header">
     <h4 class="modal-title" id="modelTitleId"></h4>
     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -9,41 +9,32 @@
     <div class="form-group">
       <label>No<span>*</span></label>
       <input type="text" class="form-control" formControlName="productNo">
-      <p class="text-danger" *ngIf="rfProduct.controls.productNo?.errors?.required">No không được để trống</p>
     </div>
     <div class="form-group">
       <label>Name<span>*</span></label>
       <input type="text" class="form-control" formControlName="productName">
-      <p class="text-danger" *ngIf="rfProduct.controls.productName?.errors?.required">Tên không được để trống</p>
     </div>
     <div class="form-group">
       <label>Price<span>*</span></label>
       <input type="number" class="form-control" formControlName="productPrice">
-      <p class="text-danger" *ngIf="rfProduct.controls.productPrice?.errors?.required">Price không được để trống</p>
     </div>
     <div class="form-group">
       <label>Day<span>*</span></label>
       <input type="date" class="form-control" formControlName="productDay">
-      <p class="text-danger" *ngIf="rfProduct.controls.productDay?.errors?.required">Date không được để trống</p>
     </div>
     <div class="form-group">
       <label>Description<span>*</span></label>
       <input type="text" class="form-control" formControlName="productDescription">
-      <p class="text-danger" *ngIf="rfProduct.controls.productDescription?.errors?.required">Description không được để trống</p>
     </div>
     <div class="form-group">
       <label>Status<span>*</span></label>
       <select class="form-select" formControlName="status">
         <option *ngFor="let status of statuses; index as i" [ngValue]="status">{{status.statusName}}</option>
       </select>
-      <p class="text-danger" *ngIf="rfProduct.controls.status?.errors?.required">Status không được để trống</p>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="reset" class="btn btn-secondary" routerLink="/product/list">Close</button>
-    <button [disabled]="rfProduct.invalid" type="submit" class="btn btn-primary" >Save</button>
+    <button type="submit" class="btn btn-primary" >Update</button>
   </div>
 </form>
-<pre>
-  {{rfProduct.value|json}}
-</pre>
+
