@@ -1,0 +1,92 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <form action="" *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <tr>
+        <td class="col-4">
+          <div class="form-group mb-2 d-inline">
+            <label for="1">Name: </label>
+            <input type="search" id="1" class="form-control" formControlName="nameCustomer">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <div class="form-group mb-2 d-inline">
+          <button type="submit" class="btn btn-outline-dark">Search</button>
+        </div>
+      </tr>
+    </form>
+  </div>
+</div>
+<div class='table-responsive'>
+  <a name="" id="" class="btn btn-dark" routerLink="/customer/create"
+     role="button">Create</a>
+  <div class="card mt-2">
+    <div class="card-body">
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>DATE</th>
+          <th>GENDER</th>
+          <th>ID CARD</th>
+          <th>PHONE</th>
+          <th>EMAIL</th>
+          <th>CUSTOMER TYPE</th>
+          <th>ADDRESS</th>
+          <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 3, currentPage: p }; index as i ">
+          <td scope="row">{{i + 1}}</td>
+          <td>{{customer.idCustomer}}</td>
+          <td>{{customer.nameCustomer}}</td>
+          <td>{{customer.dateCustomer}}</td>
+          <td>{{customer.genderCustomer }}</td>
+          <td>{{customer.idCardCustomer}}</td>
+          <td>{{customer.phoneCustomer}}</td>
+          <td>{{customer.emailCustomer }}</td>
+          <td>{{customer.typeCustomer.nameCustomerType}}</td>
+          <td>{{customer.addressCustomer}}</td>
+
+          <!-- Button trigger modal delete -->
+          <td class="d-flex justify-content-evenly"><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+                    (click)="getCustomer(customer.id)">Delete
+            </button>
+            <!--  edit -->
+            <a class="btn btn-outline-dark" role="button" routerLink="/customer/update/{{customer.id}}">Update</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    </div>
+  </div>
+</div>
+<!-- Modal delete -->
+<div *ngIf="customer" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ban co muon xoa {{customer.nameCustomer}} khong?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeProduct(customer.id)">
+          confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

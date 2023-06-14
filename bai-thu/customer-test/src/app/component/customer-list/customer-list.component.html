@@ -1,0 +1,103 @@
+<!--<div class="container">-->
+<div class="card mb-2">
+  <div class="card-body">
+    <form action="" *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <tr>
+        <td class="col-4">
+          <div class="form-group mb-2 d-inline">
+            <label for="1">Name: </label>
+            <input type="search" id="1" class="form-control" formControlName="nameCustomer">
+          </div>
+        </td>
+        <td class="col-4">
+          <div class="form-group mb-2 d-inline">
+            <label for="2">Phone: </label>
+            <input type="search" id="2" class="form-control" formControlName="phoneCustomer">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <div class="form-group mb-2 d-inline">
+          <button type="submit" class="btn btn-outline-dark">Search</button>
+        </div>
+      </tr>
+    </form>
+  </div>
+</div>
+<div class='table-responsive'>
+  <div class="card mt-2">
+    <div class="card-body">
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>Id.</th>
+          <th>idCustomer.</th>
+          <th>nameCustomer</th>
+          <th>dateCustomer</th>
+          <th>genderCustomer</th>
+          <th>idCardCustomer</th>
+          <th>phoneCustomer</th>
+          <th>emailCustomer</th>
+          <th>typeCustomer</th>
+          <th>addressCustomer</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pro of customers| paginate: { itemsPerPage: 4, currentPage: p}">
+          <td>{{pro.id}}</td>
+          <td>{{pro.idCustomer}}</td>
+          <td>{{pro.nameCustomer}}</td>
+          <td>{{pro.dateCustomer}}</td>
+          <td>{{pro.genderCustomer}}</td>
+          <td>{{pro.idCardCustomer}}</td>
+          <td>{{pro.phoneCustomer}}</td>
+          <td>{{pro.emailCustomer}}</td>
+          <td>{{pro.typeCustomer.nameCustomerType}}</td>
+          <td>{{pro.addressCustomer}}</td>
+          <!-- Button trigger modal delete -->
+          <td class="d-flex justify-content-evenly"><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+                    (click)="getProduct(pro.id)">Delete
+            </button>
+            <!--              &lt;!&ndash; Modal detail &ndash;&gt;-->
+            <!--              <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#detail"-->
+            <!--                      (click)="getProduct(product.id)">Detail-->
+            <!--              </button>-->
+            <!--              &lt;!&ndash;  edit &ndash;&gt;-->
+            <!--              <a class="btn btn-outline-dark" role="button" routerLink="/product/update/{{product.id}}">Update</a>-->
+            <!--            </td>-->
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+<!--</div>-->
+
+<!-- Modal delete -->
+<div *ngIf="customer" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete {{customer.nameCustomer}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeProduct(customer.id)">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

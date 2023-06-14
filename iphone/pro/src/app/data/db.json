@@ -5,8 +5,10 @@
       "productName": "IPhone 12",
       "productPrice": 2400000,
       "productDay": "2000-02-02",
+      "productEnd": "2000-02-03",
       "productDescription": "New",
       "status": {
+        "id": 1,
         "statusNo": 1,
         "statusName": "Sold"
       },
@@ -17,20 +19,23 @@
       "productName": "IPhone 11",
       "productPrice": 1560000,
       "productDay": "2000-02-03",
+      "productEnd": "2000-02-04",
       "productDescription": "Like new",
       "status": {
-        "statusNo": 1,
-        "statusName": "Sold"
+        "id": 2,
+        "statusNo": 2,
+        "statusName": "Stock"
       },
       "id": 2
     },
     {
       "productNo": "123",
-      "productName": "van",
+      "productName": "vanlaaaaa",
       "productPrice": 2313666,
       "productDay": "2023-06-17",
-      "productDescription": "dsadas",
+      "productDescription": "dsadasaqweqweqwe",
       "status": {
+        "id": 1,
         "statusNo": 1,
         "statusName": "Sold"
       },
@@ -41,8 +46,10 @@
       "productName": "weqweq",
       "productPrice": 213123,
       "productDay": "2023-06-08",
+      "productEnd": "2000-06-18",
       "productDescription": "qweqwe",
       "status": {
+        "id": 1,
         "statusNo": 1,
         "statusName": "Sold"
       },
@@ -53,20 +60,66 @@
       "productName": "qweq",
       "productPrice": 12313,
       "productDay": "2023-06-15",
+      "productEnd": "2000-06-18",
       "productDescription": "ASs",
       "status": {
+        "id": 1,
         "statusNo": 1,
         "statusName": "Sold"
       },
       "id": 7
+    },
+    {
+      "productNo": "MV-111",
+      "productName": "ADASD",
+      "productPrice": 132131,
+      "productDay": "2023-06-14",
+      "productEnd": "2023-06-14",
+      "productDescription": "ASDASD",
+      "status": {
+        "id": 1,
+        "statusNo": 1,
+        "statusName": "Sold"
+      },
+      "id": 8
+    },
+    {
+      "productNo": "MV-666",
+      "productName": "SADASD",
+      "productPrice": 11312,
+      "productDay": "2023-06-09",
+      "productEnd": "2023-06-22",
+      "productDescription": "EQEQW",
+      "status": {
+        "id": 2,
+        "statusNo": 2,
+        "statusName": "Stock"
+      },
+      "id": 9
+    },
+    {
+      "productNo": "MV-213",
+      "productName": "ASDASD",
+      "productPrice": 12312,
+      "productDay": "2023-06-08",
+      "productEnd": "2023-06-21",
+      "productDescription": "ASDASD",
+      "status": {
+        "id": 1,
+        "statusNo": 1,
+        "statusName": "Sold"
+      },
+      "id": 10
     }
   ],
   "statuses": [
     {
+      "id": 1,
       "statusNo": 1,
       "statusName": "Sold"
     },
     {
+      "id": 2,
       "statusNo": 2,
       "statusName": "Stock"
     }

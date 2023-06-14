@@ -36,7 +36,7 @@
       </form>
     </div>
   </div>
-  <!--<app-product-create></app-product-create>-->
+  <app-product-create></app-product-create>
 
   <div class='table-responsive'>
     <div class="card mt-2">
@@ -49,6 +49,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Day</th>
+            <th>End</th>
             <th>Description</th>
             <th>Status</th>
             <th>Action</th>
@@ -56,11 +57,12 @@
           </thead>
           <tbody>
           <tr *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: p }; index as i ">
-            <td scope="row">{{i + 1}}</td>
+            <td>{{product.id}}</td>
             <td>{{product.productNo}}</td>
-            <td>{{product.productName}}</td>
-            <td>{{product.productPrice}}</td>
+            <td>{{product.productName | titlecase}}</td>
+            <td>{{product.productPrice | currency: 'VND'}}</td>
             <td>{{product.productDay | date: 'dd/MM/yyyy' }}</td>
+            <td>{{product.productEnd | date: 'dd/MM/yyyy' }}</td>
             <td>{{product.productDescription}}</td>
             <td>{{product.status.statusName}}</td>
 
@@ -79,7 +81,7 @@
           </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>
@@ -121,24 +123,24 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-          <div class="card-header">Detail product</div>
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            Detail Product
+          </div>
           <div class="card-body">
-            <h4 class="card-title">Name</h4>
-            <p class="card-text">{{product.productName}}</p>
-            <h4 class="card-title">Price</h4>
-            <p class="card-text">{{product.productPrice}}</p>
-            <h4 class="card-title">Day</h4>
-            <p class="card-text">{{product.productDay}}</p>
-            <h4 class="card-title">Description</h4>
-            <p class="card-text">{{product.productDescription}}</p>
-            <h4 class="card-title">class</h4>
-            <p class="card-text">{{product.status.statusName}}</p>
+            <p class="card-text">{{ product.productNo}}</p>
+            <h5 class="card-title">{{ product.productName }}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Price:</strong> {{ product.productPrice }}</li>
+            <li class="list-group-item"><strong>Day:</strong> {{ product.productDay }}</li>
+            <li class="list-group-item"><strong>Class:</strong> {{ product.status.statusName }}</li>
+            <li class="list-group-item"><strong>Class:</strong> {{ product.productDescription }}</li>
+          </ul>
+          <div class="card-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

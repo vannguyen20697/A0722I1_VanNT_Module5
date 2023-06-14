@@ -1,0 +1,24 @@
+/*.topnav {*/
+/*  overflow: hidden;*/
+/*  background-color: #63cdda;*/
+/*}*/
+
+/*.topnav a {*/
+/*  float: left;*/
+/*  display: block;*/
+/*  color: #333;*/
+/*  text-align: center;*/
+/*  padding: 14px 16px;*/
+/*  text-decoration: none;*/
+/*  transition: background-color 0.3s;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.topnav a:hover {*/
+/*  background-color: #ddd;*/
+/*  color: #ff0000; !* Mã màu sắc tùy chọn *!*/
+/*}*/
+
+/*.topnav a.right {*/
+/*  float: right;*/
+/*}*/

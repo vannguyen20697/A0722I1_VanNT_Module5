@@ -1,0 +1,76 @@
+
+<div class='table-responsive'>
+  <a name="" id="" class="btn btn-dark" routerLink="/employee/create"
+     role="button">Create</a>
+  <div class="card mt-2">
+    <div class="card-body">
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>POSITION</th>
+          <th>LEVEL</th>
+          <th>PART</th>
+          <th>DATE</th>
+          <th>ID CARD</th>
+          <th>SALARY</th>
+          <th>PHONE</th>
+          <th>EMAIL</th>
+          <th>ADDRESS</th>
+          <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 3, currentPage: p }; index as i ">
+          <td scope="row">{{i + 1}}</td>
+          <td>{{employee.idEmployee}}</td>
+          <td>{{employee.nameEmployee}}</td>
+          <td>{{employee.viTriEmployee.namePosition}}</td>
+          <td>{{employee.trinhDoEmployee.nameLevel}}</td>
+          <td>{{employee.boPhanEmployee.namePart }}</td>
+          <td>{{employee.dateEmployee}}</td>
+          <td>{{employee.idCardEmployee}}</td>
+          <td>{{employee.salaryEmployee }}</td>
+          <td>{{employee.phoneEmployee}}</td>
+          <td>{{employee.emailEmployee}}</td>
+          <td>{{employee.addressEmployee}}</td>
+          <!-- Button trigger modal delete -->
+          <td class="d-flex justify-content-evenly"><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+                    (click)="getEmployee(employee.id)">Delete
+            </button>
+            <!--  edit -->
+            <a class="btn btn-outline-dark" role="button" routerLink="/employee/update/{{employee.id}}">Update</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    </div>
+  </div>
+</div>
+<!-- Modal delete -->
+<div *ngIf="employee" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ban co muon xoa {{employee.nameEmployee}} khong?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeProduct(employee.id)">
+          confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

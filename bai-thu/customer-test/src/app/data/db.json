@@ -1,0 +1,131 @@
+{
+  "customerTypes": [
+    {
+      "id": 1,
+      "nameCustomerType": "Diamond"
+    },
+    {
+      "id": 2,
+      "nameCustomerType": "Platinium"
+    },
+    {
+      "id": 3,
+      "nameCustomerType": "Gold"
+    },
+    {
+      "id": 4,
+      "nameCustomerType": "Silver"
+    },
+    {
+      "id": 5,
+      "nameCustomerType": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "idCustomer": "KH-1111",
+      "nameCustomer": "Nguyễn Vân",
+      "dateCustomer": "2001-04-14",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 206306357,
+      "phoneCustomer": "+84935338475",
+      "emailCustomer": "vannguyen@gmail.com",
+      "typeCustomer": {
+        "id": 1,
+        "nameCustomerType": "Diamond"
+      },
+      "addressCustomer": "Quảng Nam"
+    },
+    {
+      "id": 2,
+      "idCustomer": "KH-1112",
+      "nameCustomer": "Nguyễn Văn A",
+      "dateCustomer": "2001-04-14",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 206306357,
+      "phoneCustomer": "+84935338475",
+      "emailCustomer": "abc@gmail.com",
+      "typeCustomer": {
+        "id": 2,
+        "nameCustomerType": "Platinium"
+      },
+      "addressCustomer": "Đà Nẵng"
+    },
+    {
+      "id": 3,
+      "idCustomer": "KH-1113",
+      "nameCustomer": "Nguyễn Thị B",
+      "dateCustomer": "2001-04-14",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 206306357,
+      "phoneCustomer": "+84935338475",
+      "emailCustomer": "thib@gmail.com",
+      "typeCustomer": {
+        "id": 3,
+        "nameCustomerType": "Gold"
+      },
+      "addressCustomer": "Hà Nội"
+    },
+    {
+      "id": 4,
+      "idCustomer": "KH-1114",
+      "nameCustomer": "Nguyễn Văn D",
+      "dateCustomer": "2001-04-14",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 206306357,
+      "phoneCustomer": "+84935338475",
+      "emailCustomer": "vand@gmail.com",
+      "typeCustomer": {
+        "id": 4,
+        "nameCustomerType": "Silver"
+      },
+      "addressCustomer": "Quảng Bình"
+    },
+    {
+      "id": 5,
+      "idCustomer": "KH-1115",
+      "nameCustomer": "Võ Hi Hi",
+      "dateCustomer": "2001-04-14",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 206306357,
+      "phoneCustomer": "+84935338475",
+      "emailCustomer": "h@gmail.com",
+      "typeCustomer": {
+        "id": 3,
+        "nameCustomerType": "Gold"
+      },
+      "addressCustomer": "Lào cai"
+    },
+    {
+      "idCustomer": "KH-1234",
+      "nameCustomer": "Nguyễn D",
+      "dateCustomer": "2023-06-03",
+      "genderCustomer": "Nữ",
+      "idCardCustomer": 123456789,
+      "phoneCustomer": "+84123456789",
+      "emailCustomer": "quang14042001@gmail.com",
+      "typeCustomer": {
+        "id": 1,
+        "nameCustomerType": "Diamond"
+      },
+      "addressCustomer": "Đà Nẵng",
+      "id": 8
+    },
+    {
+      "idCustomer": "MV-678",
+      "nameCustomer": "123123",
+      "dateCustomer": "2023-06-16",
+      "genderCustomer": "12313",
+      "idCardCustomer": "123123",
+      "phoneCustomer": "123123",
+      "emailCustomer": "123123",
+      "typeCustomer": {
+        "id": 3,
+        "nameCustomerType": "Gold"
+      },
+      "addressCustomer": "123131",
+      "id": 9
+    }
+  ]
+}

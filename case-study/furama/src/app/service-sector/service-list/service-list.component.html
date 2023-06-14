@@ -1,0 +1,45 @@
+<div class='table-responsive'>
+  <a name="" id="" class="btn btn-dark" routerLink="/service/create"
+     role="button">Create</a>
+  <div class="card mt-2">
+    <div class="card-body">
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>AREA</th>
+          <th>GRADE</th>
+          <th>MAX PEOPLE</th>
+          <th>RENTAL COST</th>
+          <th>RENTAL TYPE</th>
+          <th>COST</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let service of services | paginate: { itemsPerPage: 3, currentPage: p }; index as i ">
+          <td scope="row">{{i + 1}}</td>
+          <td>{{service.idService}}</td>
+          <td>{{service.nameService}}</td>
+          <td>{{service.dienTichService}}</td>
+          <td>{{service.soTangService }}</td>
+          <td>{{service.soNguoiToiDa}}</td>
+          <td>{{service.chiPhiThue}}</td>
+          <td>{{service.rentalType.nameRentalType }}</td>
+          <td>{{service.rentalType.cost}}</td>
+          <td>{{service.trangThai}}</td>
+
+          <!-- Button trigger modal delete -->
+<!--          <td class="d-flex justify-content-evenly">&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"-->
+<!--                    (click)="getCustomer(customer.id)">Delete-->
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    </div>
+  </div>
+</div>

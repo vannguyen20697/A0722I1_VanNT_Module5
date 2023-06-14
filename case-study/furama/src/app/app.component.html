@@ -1,0 +1,13 @@
+<div class="topnav">
+  <a routerLink="/home" >Furama Review</a>
+  <a routerLink="/customer" (click)="reload('/customer')">Customer</a>
+  <a routerLink="/employee" (click)="reload('/employee')">Employee</a>
+  <a routerLink="/service" (click)="reload('/service')">Service</a>
+  <a routerLink="/contract" (click)="reload('/contract')">Contract</a>
+</div>
+<div class="row">
+  <div class="card">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

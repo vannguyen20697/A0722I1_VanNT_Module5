@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Status} from '../../model/status';
 import {Product1} from '../../model/product1';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {StatusService} from '../../service/status.service';
 import {Router} from '@angular/router';
@@ -18,13 +18,15 @@ export class ProductCreate1Component implements OnInit {
   rfProduct: FormGroup;
   constructor(private productService: ProductService,
               private statusService: StatusService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.getAllStatus();
     this.rfProduct = new FormGroup({
       productNo: new FormControl('', [
         Validators.required,
+        Validators.pattern('^MV-[0-9]{3}')
       ]),
       productName: new FormControl('', [
         Validators.required,
@@ -34,6 +36,9 @@ export class ProductCreate1Component implements OnInit {
       ]),
       productDay: new FormControl('', [
         Validators.required,
+      ]),
+      productEnd: new FormControl('', [
+        Validators.required
       ]),
       productDescription: new FormControl('', [
         Validators.required,
@@ -50,7 +55,7 @@ export class ProductCreate1Component implements OnInit {
     });
   }
 
-   addProduct() {
+  addProduct() {
     const product = this.rfProduct.value;
     this.productService.save(product).subscribe(data => {
       Swal.fire({
@@ -63,5 +68,6 @@ export class ProductCreate1Component implements OnInit {
       this.router.navigateByUrl('/product/list');
     });
   }
+
 
 }

@@ -1,0 +1,81 @@
+<form action="" [formGroup]="rfProduct" (ngSubmit)="addProduct()">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modelTitleId"></h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>idEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.idEmployee?.errors?.required">No không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>nameEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="nameEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.nameEmployee?.errors?.required">Tên không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>viTriEmployee<span>*</span></label>
+      <select class="form-select" formControlName="viTriEmployee">
+        <option *ngFor="let viTriEmployee of positions; index as i" [ngValue]="viTriEmployee">{{viTriEmployee.namePosition}}</option>
+      </select>
+      <p class="text-danger" *ngIf="rfProduct.controls.viTriEmployee?.errors?.required">viTriEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>trinhDoEmployee<span>*</span></label>
+      <select class="form-select" formControlName="trinhDoEmployee">
+        <option *ngFor="let trinhDoEmployee of levels; index as i" [ngValue]="trinhDoEmployee">{{trinhDoEmployee.nameLevel}}</option>
+      </select>
+      <p class="text-danger" *ngIf="rfProduct.controls.trinhDoEmployee?.errors?.required">trinhDoEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>boPhanEmployee<span>*</span></label>
+      <select class="form-select" formControlName="boPhanEmployee">
+        <option *ngFor="let boPhanEmployee of parts; index as i" [ngValue]="boPhanEmployee">{{boPhanEmployee.namePart}}</option>
+      </select>
+      <p class="text-danger" *ngIf="rfProduct.controls.boPhanEmployee?.errors?.required">boPhanEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>dateEmployee<span>*</span></label>
+      <input type="date" class="form-control" formControlName="dateEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.dateEmployee?.errors?.required">dateEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>idCardEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCardEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.idCardEmployee?.errors?.required">idCardEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>salaryEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="salaryEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.salaryEmployee?.errors?.required">salaryEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>phoneEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="phoneEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.phoneEmployee?.errors?.required">phoneEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>addressEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="addressEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.addressEmployee?.errors?.required">addressEmployee không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>emailEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="emailEmployee">
+      <p class="text-danger" *ngIf="rfProduct.controls.emailEmployee?.errors?.required">emailEmployee không được để trống</p>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="reset" class="btn btn-secondary" routerLink="/employee">Close</button>
+    <button [disabled]="rfProduct.invalid" type="submit" class="btn btn-primary" >Save</button>
+  </div>
+</form>
+<pre>
+  {{rfProduct.value|json}}
+</pre>
+
+

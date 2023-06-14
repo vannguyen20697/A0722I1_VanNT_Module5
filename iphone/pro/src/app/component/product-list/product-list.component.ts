@@ -48,18 +48,18 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  getProduct(id: number) {
-    this.productService.findById(id).subscribe(next => {
-      this.product = next;
-    });
-  }
+    getProduct(id: number) {
+      this.productService.findById(id).subscribe(next => {
+        this.product = next;
+      });
+    }
 
-  removeProduct(id: number) {
-    this.productService.deleteById(this.product.id).subscribe(() => {
-      this.router.navigateByUrl('/product/list');
-      this.getAllProduct();
-    });
-  }
+    removeProduct(id: number) {
+      this.productService.deleteById(this.product.id).subscribe(() => {
+        this.router.navigateByUrl('/product/list');
+        this.getAllProduct();
+      });
+    }
 
   onSearch() {
     const rfSearch = this.searchForm.value;

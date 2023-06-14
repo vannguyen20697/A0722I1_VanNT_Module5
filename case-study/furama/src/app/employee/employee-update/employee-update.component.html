@@ -1,0 +1,69 @@
+<form action="" [formGroup]="employeeForm" (ngSubmit)="updateCustomer(id)">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modelTitleId"></h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>idEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idEmployee">
+    </div>
+    <div class="form-group">
+      <label>nameEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="nameEmployee">
+    </div>
+    <div class="form-group">
+      <label>viTriEmployee<span>*</span></label>
+      <select class="form-select" formControlName="viTriEmployee">
+        <option *ngFor="let viTriEmployee of positions; index as i" [value]="viTriEmployee.id" ]="viTriEmployee">{{viTriEmployee.namePosition}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>trinhDoEmployee<span>*</span></label>
+      <select class="form-select" formControlName="trinhDoEmployee">
+        <option *ngFor="let trinhDoEmployee of levels; index as i" [value]="trinhDoEmployee.id">{{trinhDoEmployee.nameLevel}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>boPhanEmployee<span>*</span></label>
+      <select class="form-select" formControlName="boPhanEmployee">
+        <option *ngFor="let boPhanEmployee of parts; index as i" [value]="boPhanEmployee.id">{{boPhanEmployee.namePart}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>dateEmployee<span>*</span></label>
+      <input type="date" class="form-control" formControlName="dateEmployee">
+    </div>
+    <div class="form-group">
+      <label>idCardEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCardEmployee">
+    </div>
+    <div class="form-group">
+      <label>salaryEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="salaryEmployee">
+    </div>
+    <div class="form-group">
+      <label>phoneEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="phoneEmployee">
+    </div>
+    <div class="form-group">
+      <label>addressEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="addressEmployee">
+    </div>
+    <div class="form-group">
+      <label>emailEmployee<span>*</span></label>
+      <input type="text" class="form-control" formControlName="emailEmployee">
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="reset" class="btn btn-secondary" routerLink="/employee">Close</button>
+    <button type="submit" class="btn btn-primary" >Save</button>
+  </div>
+</form>
+
+
+
+

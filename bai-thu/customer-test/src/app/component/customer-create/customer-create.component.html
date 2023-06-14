@@ -1,0 +1,75 @@
+<form action="" [formGroup]="rfProduct" (ngSubmit)="addCustomer()">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modelTitleId"></h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>idCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.idCustomer?.touched && rfProduct.controls.idCustomer?.errors?.required">Không được để trống</p>
+      <p class="text-danger" *ngIf="rfProduct.controls.idCustomer?.errors?.pattern">Tên MV-***</p>
+
+    </div>
+    <div class="form-group">
+      <label>nameCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="nameCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.nameCustomer?.touched && rfProduct.controls.nameCustomer?.errors?.required">Không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>Price<span>*</span></label>
+      <input type="number" class="form-control" formControlName="productPrice">
+      <p class="text-danger" *ngIf="rfProduct.controls.productNo?.touched && rfProduct.controls.productNo?.errors?.required">Không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>dateCustomer<span>*</span></label>
+      <input type="date" class="form-control" formControlName="dateCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.dateCustomer?.touched && rfProduct.controls.dateCustomer?.errors?.required">Không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>genderCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="genderCustomer" >
+      <p class="text-danger" *ngIf="rfProduct.controls.genderCustomer?.touched && rfProduct.controls.genderCustomer?.errors?.required">Không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>idCardCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCardCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.idCardCustomer?.touched && rfProduct.controls.idCardCustomer?.errors?.required">Không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>phoneCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="phoneCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.phoneCustomer?.touched && rfProduct.controls.phoneCustomer?.errors?.required">Không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>emailCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="emailCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.emailCustomer?.touched && rfProduct.controls.emailCustomer?.errors?.required">Không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>typeCustomer<span>*</span></label>
+      <select class="form-select" formControlName="typeCustomer">
+        <option *ngFor="let typeCustomer of customerTypes; index as i" [ngValue]="typeCustomer">{{typeCustomer.nameCustomerType}}</option>
+      </select>
+      <p class="text-danger" *ngIf="rfProduct.controls.typeCustomer?.touched && rfProduct.controls.typeCustomer?.errors?.required">Không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>addressCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="addressCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.addressCustomer?.touched && rfProduct.controls.addressCustomer?.errors?.required">Không được để trống</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="reset" class="btn btn-secondary" routerLink="/customer">Close</button>
+    <button [disabled]="rfProduct.invalid" type="submit" class="btn btn-primary" >Save</button>
+  </div>
+</form>
+<pre>
+  {{rfProduct.value|json}}
+</pre>
+

@@ -1,0 +1,35 @@
+/*!* You can add global styles to this file, and also import other style files *!*/
+/*.topnav {*/
+/*  background-color: #333; !* Màu nền *!*/
+/*  overflow: hidden;*/
+/*  padding: 10px; !* Khoảng cách phần lề bên trong header *!*/
+/*}*/
+
+/*.topnav a {*/
+/*  float: left; !* Hiển thị các liên kết cạnh nhau *!*/
+/*  color: #fff; !* Màu chữ *!*/
+/*  text-align: center;*/
+/*  padding: 14px 16px; !* Khoảng cách giữa các liên kết *!*/
+/*  text-decoration: none; !* Gỡ bỏ gạch chân *!*/
+/*  transition: background-color 0.3s ease, transform 0.3s ease; !* Hiệu ứng chuyển đổi màu nền và transform mượt mà *!*/
+/*  font-size: 18px; !* Kích thước chữ mặc định *!*/
+/*}*/
+
+/*.topnav a:hover {*/
+/*  background-color: #74b9ff; !* Màu nền khi di chuột qua *!*/
+/*  color: #fff; !* Màu chữ khi di chuột qua *!*/
+/*  border-radius: 8px; !* Bo góc cho hiệu ứng nổi bật *!*/
+
+/*}*/
+
+/*.topnav a.router-link-active {*/
+/*  background-color: #4CAF50; !* Màu nền khi liên kết được chọn *!*/
+/*  color: #fff; !* Màu chữ khi liên kết được chọn *!*/
+/*  font-weight: bold; !* Tạo độ đậm cho liên kết được chọn *!*/
+/*}*/
+/*.row {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  height: 100vh;*/
+/*}*/

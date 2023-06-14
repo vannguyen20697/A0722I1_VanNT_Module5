@@ -1,10 +1,9 @@
 <div class="topnav">
-  <a routerLink="/product/list">List product</a>
-  <a routerLink="/product/create">Create New</a>
-  <a routerLink="/product/status">Status List</a>
+  <a routerLink="/product/list" (click)="reload('/product/list')">List product</a>
+  <a routerLink="/product/create" (click)="reload('/product/create')">Create New</a>
+  <a routerLink="/product/status" (click)="reload('/product/status')">Status List</a>
   <a href="#" style=" float:right">Logout</a>
 </div>
-
 <div class="row">
   <div class="card">
     <router-outlet></router-outlet>

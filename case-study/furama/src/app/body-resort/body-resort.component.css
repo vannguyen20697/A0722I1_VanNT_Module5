@@ -1,0 +1,14 @@
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Các card sẽ được căn cách đều nhau */
+}
+
+.card {
+  flex-basis: calc(33.33% - 10px); /* Đặt kích thước cho mỗi card */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}

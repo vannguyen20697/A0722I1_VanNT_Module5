@@ -15,6 +15,6 @@ export class StatusService {
   }
 
   public findById(id: number): Observable<Status> {
-    return this.httpClient.get<Status>(this.API_STA + '/' + id);
+    return this.httpClient.get<Status>(this.API_STA + '?statusNo=' + id);
   }
 }

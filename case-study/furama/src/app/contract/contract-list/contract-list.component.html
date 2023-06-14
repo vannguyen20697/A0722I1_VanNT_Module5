@@ -1,0 +1,42 @@
+<div class='table-responsive'>
+  <a name="" id="" class="btn btn-dark" routerLink="/service/create"
+     role="button">Create</a>
+  <div class="card mt-2">
+    <div class="card-body">
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>code</th>
+          <th>employee</th>
+          <th>customer</th>
+          <th>service</th>
+          <th>ngayLamHopDong</th>
+          <th>ngayKetThuc</th>
+          <th>tienDatCoc</th>
+          <th>tongTien</th>
+          <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contract of contracts; index as i ">
+          <td scope="row">{{i + 1}}</td>
+          <td>{{contract.code}}</td>
+          <td>{{contract.employee.nameEmployee}}</td>
+          <td>{{contract.customer.nameCustomer}}</td>
+          <td>{{contract.service.soTangService }}</td>
+          <td>{{contract.ngayLamHopDong}}</td>
+          <td>{{contract.ngayKetThuc}}</td>
+          <td>{{contract.tienDatCoc }}</td>
+          <td>{{contract.tongTien}}</td>
+
+          <!-- Button trigger modal delete -->
+          <!--          <td class="d-flex justify-content-evenly">&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+          <!--            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"-->
+          <!--                    (click)="getCustomer(customer.id)">Delete-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

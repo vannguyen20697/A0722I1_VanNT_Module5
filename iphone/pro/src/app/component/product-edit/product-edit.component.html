@@ -29,7 +29,7 @@
     <div class="form-group">
       <label>Status<span>*</span></label>
       <select class="form-select" formControlName="status">
-        <option *ngFor="let status of statuses; index as i" [ngValue]="status">{{status.statusName}}</option>
+        <option *ngFor="let status of statuses" [value]="status.id">{{status.statusName}}</option>
       </select>
     </div>
   </div>

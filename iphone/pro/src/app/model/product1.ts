@@ -6,6 +6,7 @@ export interface Product1 {
   productName?: string;
   productPrice?: number;
   productDay?: string;
+  productEnd?: string;
   productDescription?: string;
   status?: Status;
 }

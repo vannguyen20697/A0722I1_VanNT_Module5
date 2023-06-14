@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="card mb-2">
+    <div class="card-body">
+      <form action="" *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <tr>
+          <td class="col-4">
+            <div class="form-group mb-2 d-inline">
+              <label for="1">Name: </label>
+              <input type="search" id="1" class="form-control" formControlName="productName">
+            </div>
+          </td>
+          <td class="col-4">
+            <div class="form-group mb-2 d-inline">
+              <label for="2">Price: </label>
+              <input type="search" id="2" class="form-control" formControlName="productPrice">
+            </div>
+          </td>
+          <td class="col-4">
+            <div class="form-group mb-2 d-inline">
+              <label for="2">Start Day: </label>
+              <input type="date" id="3" class="form-control" formControlName="proDayStart">
+            </div>
+          </td>
+          <td class="col-4">
+            <div class="form-group mb-2 d-inline">
+              <label for="2">End Day: </label>
+              <input type="date" id="4" class="form-control" formControlName="proDayEnd">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <div class="form-group mb-2 d-inline">
+            <button type="submit" class="btn btn-outline-dark">Search</button>
+          </div>
+        </tr>
+      </form>
+    </div>
+  </div>
+  <!--<app-product-create></app-product-create>-->
+
+  <div class='table-responsive'>
+    <div class="card mt-2">
+      <div class="card-body">
+        <table class='table table-hover'>
+          <thead>
+          <tr>
+            <th>Id.</th>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Day</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: p }; index as i ">
+            <td scope="row">{{i + 1}}</td>
+            <td>{{product.productNo}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productPrice}}</td>
+            <td>{{product.productDay | date: 'dd/MM/yyyy' }}</td>
+            <td>{{product.productDescription}}</td>
+            <td>{{product.status.statusName}}</td>
+
+            <!-- Button trigger modal delete -->
+            <td class="d-flex justify-content-evenly"><!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete"
+                      (click)="getProduct(product.id)">Delete
+              </button>
+              <!-- Modal detail -->
+              <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#detail"
+                      (click)="getProduct(product.id)">Detail
+              </button>
+              <!--  edit -->
+              <a class="btn btn-outline-dark" role="button" routerLink="/product/update/{{product.id}}">Update</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal delete -->
+<div *ngIf="product" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ban co muon xoa {{product.productName}} khong?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeProduct(product.id)">
+          confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal detail-->
+<div *ngIf="product" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDetail"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+          <div class="card-header">Detail product</div>
+          <div class="card-body">
+            <h4 class="card-title">Name</h4>
+            <p class="card-text">{{product.productName}}</p>
+            <h4 class="card-title">Price</h4>
+            <p class="card-text">{{product.productPrice}}</p>
+            <h4 class="card-title">Day</h4>
+            <p class="card-text">{{product.productDay}}</p>
+            <h4 class="card-title">Description</h4>
+            <p class="card-text">{{product.productDescription}}</p>
+            <h4 class="card-title">class</h4>
+            <p class="card-text">{{product.status.statusName}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

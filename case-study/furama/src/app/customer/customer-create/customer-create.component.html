@@ -1,0 +1,68 @@
+<form action="" [formGroup]="rfProduct" (ngSubmit)="addProduct()">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modelTitleId"></h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>idCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.idCustomer?.errors?.required">idCustomer không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>nameCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="nameCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.nameCustomer?.errors?.required">Tên không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>Day<span>*</span></label>
+      <input type="date" class="form-control" formControlName="dateCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.dateCustomer?.errors?.required">Date không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>genderCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="genderCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.genderCustomer?.errors?.required">genderCustomer không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>idCardCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="idCardCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.idCardCustomer?.errors?.required">idCardCustomer không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>phoneCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="phoneCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.phoneCustomer?.errors?.required">phoneCustomer không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>emailCustomer<span>*</span></label>
+      <input type="email" class="form-control" formControlName="emailCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.emailCustomer?.errors?.required">emailCustomer không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>typeCustomer<span>*</span></label>
+      <select class="form-select" formControlName="typeCustomer">
+        <option *ngFor="let typeCustomer of customerTypes; index as i" [ngValue]="typeCustomer">{{typeCustomer.nameCustomerType}}</option>
+      </select>
+      <p class="text-danger" *ngIf="rfProduct.controls.typeCustomer?.errors?.required">typeCustomer không được để trống</p>
+    </div>
+    <div class="form-group">
+      <label>addressCustomer<span>*</span></label>
+      <input type="text" class="form-control" formControlName="addressCustomer">
+      <p class="text-danger" *ngIf="rfProduct.controls.addressCustomer?.errors?.required">addressCustomer không được để trống</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="reset" class="btn btn-secondary" routerLink="/customer">Close</button>
+    <button [disabled]="rfProduct.invalid" type="submit" class="btn btn-primary" >Save</button>
+  </div>
+</form>
+<pre>
+  {{rfProduct.value|json}}
+</pre>
+
